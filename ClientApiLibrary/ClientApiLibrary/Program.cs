@@ -1,3 +1,5 @@
+using ClientApiLibrary.View;
+
 namespace ClientApiLibrary
 {
     internal static class Program
@@ -11,7 +13,10 @@ namespace ClientApiLibrary
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormCategory());
+            //Application.Run(new FormEditorial());
+            FormEditorial formEditorial = new FormEditorial();
+            formEditorial.Show();
+            Application.Run();
         }
     }
 }

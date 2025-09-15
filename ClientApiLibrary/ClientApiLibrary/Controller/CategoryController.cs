@@ -29,5 +29,22 @@ namespace ClientApiLibrary.Controller
                 return null;
             }
         }
+
+        public async Task<Category> findById(int id)
+        {
+            try
+            {
+                Category category = new Category();
+                HttpResponseMessage response = await client.GetAsync(getUrlBase() + "category/" + id);
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                category = JsonConvert.DeserializeObject<Category>(responseBody);
+                return category;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }
