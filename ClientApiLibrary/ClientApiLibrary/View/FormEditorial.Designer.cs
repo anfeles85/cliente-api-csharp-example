@@ -82,12 +82,14 @@
             editorialesToolStripMenuItem.Name = "editorialesToolStripMenuItem";
             editorialesToolStripMenuItem.Size = new Size(224, 26);
             editorialesToolStripMenuItem.Text = "Editoriales";
+            editorialesToolStripMenuItem.Click += editorialesToolStripMenuItem_Click;
             // 
             // librosToolStripMenuItem
             // 
             librosToolStripMenuItem.Name = "librosToolStripMenuItem";
             librosToolStripMenuItem.Size = new Size(224, 26);
             librosToolStripMenuItem.Text = "Libros";
+            librosToolStripMenuItem.Click += librosToolStripMenuItem_Click;
             // 
             // ventanaToolStripMenuItem
             // 

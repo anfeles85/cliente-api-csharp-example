@@ -107,5 +107,12 @@ namespace ClientApiLibrary
         {
             Application.Exit();
         }
+
+        private void librosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormBook formBook = new FormBook();
+            formBook.Show();
+            Dispose();
+        }
     }
 }

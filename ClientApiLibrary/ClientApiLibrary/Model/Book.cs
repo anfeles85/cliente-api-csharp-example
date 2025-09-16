@@ -8,11 +8,17 @@ namespace ClientApiLibrary.Model
 {
     public class Book
     {
-        public int Id { get; set; }
-        public string Isbn{ get; set; }
-        public string Title { get; set; }
-        public string Author { get; set; }
-        public Category Category{ get; set; }
-        public Editorial Editorial{ get; set; } 
+        public long id { get; set; }
+        public string isbn { get; set; }
+        public string title { get; set; }
+        public string author { get; set; }
+        public Category category { get; set; }
+        public Editorial editorial { get; set; }
+
+        public int category_id { get; set; }
+        public int editorial_id { get; set; }
+
+        public string CategoryName => category?.Name; 
+        public string EditorialName => editorial?.name; 
     }
 }

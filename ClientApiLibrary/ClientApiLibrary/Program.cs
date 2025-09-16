@@ -14,8 +14,8 @@ namespace ClientApiLibrary
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new FormEditorial());
-            FormEditorial formEditorial = new FormEditorial();
-            formEditorial.Show();
+            FormBook form = new FormBook();
+            form.Show();
             Application.Run();
         }
     }

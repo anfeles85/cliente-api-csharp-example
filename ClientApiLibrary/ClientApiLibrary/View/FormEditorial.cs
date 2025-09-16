@@ -151,5 +151,19 @@ namespace ClientApiLibrary.View
         {
             Application.Exit();
         }
+
+        private void editorialesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormEditorial formEditorial = new FormEditorial();
+            formEditorial.Show();
+            Dispose();
+        }
+
+        private void librosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormBook formBook = new FormBook();
+            formBook.Show();
+            Dispose();
+        }
     }
 }
