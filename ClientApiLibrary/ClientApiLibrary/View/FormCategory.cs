@@ -92,9 +92,15 @@ namespace ClientApiLibrary
             buttonUpdate.Enabled = true;
         }
 
+        public async void exit()
+        {            
+            MessageBox.Show("Sesion cerrada exitosamente");
+            Application.Exit();            
+        }
+
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            exit();
         }
 
         private void editorialesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -105,7 +111,7 @@ namespace ClientApiLibrary
 
         private void FormCategory_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            exit();
         }
 
         private void librosToolStripMenuItem_Click(object sender, EventArgs e)

@@ -38,6 +38,10 @@
             salirToolStripMenuItem = new ToolStripMenuItem();
             labelTitle = new Label();
             dataGridViewBooks = new DataGridView();
+            Id = new DataGridViewTextBoxColumn();
+            Title = new DataGridViewTextBoxColumn();
+            Author = new DataGridViewTextBoxColumn();
+            Category = new DataGridViewTextBoxColumn();
             labelTitle2 = new Label();
             textBoxTitle = new TextBox();
             textBoxIsbn = new TextBox();
@@ -54,10 +58,6 @@
             buttonInsert = new Button();
             buttonUpdate = new Button();
             buttonDelete = new Button();
-            Id = new DataGridViewTextBoxColumn();
-            Title = new DataGridViewTextBoxColumn();
-            Author = new DataGridViewTextBoxColumn();
-            Category = new DataGridViewTextBoxColumn();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBooks).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxClear).BeginInit();
@@ -83,20 +83,21 @@
             // categoríasToolStripMenuItem
             // 
             categoríasToolStripMenuItem.Name = "categoríasToolStripMenuItem";
-            categoríasToolStripMenuItem.Size = new Size(163, 26);
+            categoríasToolStripMenuItem.Size = new Size(224, 26);
             categoríasToolStripMenuItem.Text = "Categorías";
             categoríasToolStripMenuItem.Click += categoríasToolStripMenuItem_Click;
             // 
             // editorialesToolStripMenuItem
             // 
             editorialesToolStripMenuItem.Name = "editorialesToolStripMenuItem";
-            editorialesToolStripMenuItem.Size = new Size(163, 26);
+            editorialesToolStripMenuItem.Size = new Size(224, 26);
             editorialesToolStripMenuItem.Text = "Editoriales";
+            editorialesToolStripMenuItem.Click += editorialesToolStripMenuItem_Click;
             // 
             // librosToolStripMenuItem
             // 
             librosToolStripMenuItem.Name = "librosToolStripMenuItem";
-            librosToolStripMenuItem.Size = new Size(163, 26);
+            librosToolStripMenuItem.Size = new Size(224, 26);
             librosToolStripMenuItem.Text = "Libros";
             // 
             // ventanaToolStripMenuItem
@@ -136,6 +137,38 @@
             dataGridViewBooks.Size = new Size(647, 214);
             dataGridViewBooks.TabIndex = 16;
             dataGridViewBooks.CellClick += dataGridViewBooks_CellClick;
+            // 
+            // Id
+            // 
+            Id.HeaderText = "Id";
+            Id.MinimumWidth = 6;
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Width = 125;
+            // 
+            // Title
+            // 
+            Title.HeaderText = "Title";
+            Title.MinimumWidth = 6;
+            Title.Name = "Title";
+            Title.ReadOnly = true;
+            Title.Width = 125;
+            // 
+            // Author
+            // 
+            Author.HeaderText = "Author";
+            Author.MinimumWidth = 6;
+            Author.Name = "Author";
+            Author.ReadOnly = true;
+            Author.Width = 125;
+            // 
+            // Category
+            // 
+            Category.HeaderText = "CategoryName";
+            Category.MinimumWidth = 6;
+            Category.Name = "Category";
+            Category.ReadOnly = true;
+            Category.Width = 125;
             // 
             // labelTitle2
             // 
@@ -279,38 +312,6 @@
             buttonDelete.Text = "Eliminar";
             buttonDelete.UseVisualStyleBackColor = true;
             buttonDelete.Click += buttonDelete_Click;
-            // 
-            // Id
-            // 
-            Id.HeaderText = "Id";
-            Id.MinimumWidth = 6;
-            Id.Name = "Id";
-            Id.ReadOnly = true;
-            Id.Width = 125;
-            // 
-            // Title
-            // 
-            Title.HeaderText = "Title";
-            Title.MinimumWidth = 6;
-            Title.Name = "Title";
-            Title.ReadOnly = true;
-            Title.Width = 125;
-            // 
-            // Author
-            // 
-            Author.HeaderText = "Author";
-            Author.MinimumWidth = 6;
-            Author.Name = "Author";
-            Author.ReadOnly = true;
-            Author.Width = 125;
-            // 
-            // Category
-            // 
-            Category.HeaderText = "CategoryName";
-            Category.MinimumWidth = 6;
-            Category.Name = "Category";
-            Category.ReadOnly = true;
-            Category.Width = 125;
             // 
             // FormBook
             // 

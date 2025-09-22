@@ -15,11 +15,15 @@ namespace ClientApiLibrary.View
     public partial class FormEditorial : Form
     {
         private EditorialController editorialController;
+        private AuthController authController;
+        private string userToken;
 
         public FormEditorial()
         {
             InitializeComponent();
-            editorialController = new EditorialController();
+            userToken = Properties.Settings.Default.UserToken;
+            authController = new AuthController();
+            editorialController = new EditorialController(userToken);
             LoadEditorials();
         }
 
@@ -135,9 +139,19 @@ namespace ClientApiLibrary.View
             buttonUpdate.Enabled = true;
         }
 
+        public async void exit()
+        {
+            LogoutResponse response = await authController.logout(userToken);
+            if (response != null)
+            {
+                MessageBox.Show(response.message);
+                Application.Exit();
+            }
+        }
+
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            exit();
         }
 
         private void categoríasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -149,7 +163,7 @@ namespace ClientApiLibrary.View
 
         private void FormEditorial_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            exit();
         }
 
         private void editorialesToolStripMenuItem_Click(object sender, EventArgs e)

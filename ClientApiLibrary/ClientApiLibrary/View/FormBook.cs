@@ -14,14 +14,18 @@ namespace ClientApiLibrary.View
 {
     public partial class FormBook : Form
     {
+        private AuthController authController;
         private BookController bookController;
         private EditorialController editorialController;
         private CategoryController categoryController;
+        private string userToken;
         public FormBook()
         {
             InitializeComponent();
-            bookController = new BookController();
-            editorialController = new EditorialController();
+            userToken = Properties.Settings.Default.UserToken;
+            authController = new AuthController();
+            bookController = new BookController(userToken);
+            editorialController = new EditorialController(userToken);
             categoryController = new CategoryController();
             LoadBooks();
             LoadCombos();
@@ -80,14 +84,24 @@ namespace ClientApiLibrary.View
             Dispose();
         }
 
+        public async void exit()
+        {
+            LogoutResponse response = await authController.logout(userToken);
+            if(response != null)
+            {
+                MessageBox.Show(response.message);
+                Application.Exit();
+            }            
+        }
+
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            exit();
         }
 
         private void FormBook_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            exit();
         }
 
         private void pictureBoxClear_Click(object sender, EventArgs e)
@@ -208,11 +222,18 @@ namespace ClientApiLibrary.View
             textBoxTitle.Text = book.title;
             textBoxAuthor.Text = book.author;
             comboBoxEditorials.SelectedValue = book.editorial_id;
-            comboBoxCategories.SelectedValue = book.category_id; 
+            comboBoxCategories.SelectedValue = book.category_id;
 
             buttonInsert.Enabled = false;
             buttonDelete.Enabled = true;
             buttonUpdate.Enabled = true;
+        }
+
+        private void editorialesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormEditorial formEditorial = new FormEditorial();
+            formEditorial.Show();
+            Dispose();
         }
     }
 }

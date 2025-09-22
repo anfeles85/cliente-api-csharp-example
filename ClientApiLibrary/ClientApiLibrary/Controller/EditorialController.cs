@@ -1,9 +1,11 @@
 ﻿using ClientApiLibrary.Model;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,15 +15,17 @@ namespace ClientApiLibrary.Controller
     {
         private HttpClient client;
 
-        public EditorialController()
+        public EditorialController(string token)
         {
             client = new HttpClient();
+            // Configurar el encabezado de autorización
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
 
         public async Task<List<Editorial>> findAll()
         {
             try
-            {
+            {  
                 List<Editorial> editorials = new List<Editorial>();
                 HttpResponseMessage response = await client.GetAsync(getUrlBase() + "editorial");
                 response.EnsureSuccessStatusCode();
